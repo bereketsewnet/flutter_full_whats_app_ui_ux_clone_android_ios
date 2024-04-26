@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:whats_app_ui/Screens/CameraScreen.dart';
+import 'package:whats_app_ui/Screens/LandingScreen.dart';
 import 'package:whats_app_ui/Screens/homeScreen.dart';
 
 import 'colors.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
 
         ),
       ),
-      home: const HomeScreen(),
+      home: const LandingScreen(),
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/Screens/CallScreen.dart';
 import 'package:whats_app_ui/pages/CameraPage.dart';
 import 'package:whats_app_ui/pages/ChatsPage.dart';
+import 'package:whats_app_ui/pages/StatusPage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,36 +29,34 @@ class _HomeScreenState extends State<HomeScreen>
         title: const Text('Whatsapp Clone'),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          PopupMenuButton(
-              onSelected: (value) {
-                if (kDebugMode) {
-                  print(value);
-                }
-              },
-              itemBuilder: (context) {
-                return [
-                  const PopupMenuItem(
-                    value: 'New group',
-                    child: Text('New group'),
-                  ),
-                  const PopupMenuItem(
-                    value: 'New broadcast',
-                    child: Text('New broadcast'),
-                  ),
-                  const PopupMenuItem(
-                    value: 'Whatsapp web',
-                    child: Text('Whatsapp web'),
-                  ),
-                  const PopupMenuItem(
-                    value: 'Started message',
-                    child: Text('Started message'),
-                  ),
-                  const PopupMenuItem(
-                    value: 'Settings',
-                    child: Text('Settings'),
-                  ),
-                ];
-              }),
+          PopupMenuButton(onSelected: (value) {
+            if (kDebugMode) {
+              print(value);
+            }
+          }, itemBuilder: (context) {
+            return [
+              const PopupMenuItem(
+                value: 'New group',
+                child: Text('New group'),
+              ),
+              const PopupMenuItem(
+                value: 'New broadcast',
+                child: Text('New broadcast'),
+              ),
+              const PopupMenuItem(
+                value: 'Whatsapp web',
+                child: Text('Whatsapp web'),
+              ),
+              const PopupMenuItem(
+                value: 'Started message',
+                child: Text('Started message'),
+              ),
+              const PopupMenuItem(
+                value: 'Settings',
+                child: Text('Settings'),
+              ),
+            ];
+          }),
         ],
         bottom: TabBar(
           controller: _tabController,
@@ -95,8 +95,8 @@ class _HomeScreenState extends State<HomeScreen>
         children: const [
           CameraPage(),
           ChatPage(),
-          Center(child: Text('Status')),
-          Center(child: Text('Calls')),
+          StatusPage(),
+          CallScreen(),
         ],
       ),
     );
